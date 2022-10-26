@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.getEmailAddrv2</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>getEmailAddrv2</name>
+        <script><![CDATA[var getEmailAddrv2 = Class.create();
+getEmailAddrv2.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+  getEmail: function() {
+	  gs.warn('user id: {0}', this.getParameter('sysparm_userID'));
+    var userRecord = new GlideRecord("sys_user");
+    userRecord.get(this.getParameter('sysparm_userID'));
+	  gs.warn(userRecord.getRowCount());
+    return userRecord.email + '';
+  },
+	
+    type: 'getEmailAddrv2'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>colleen</sys_created_by>
+        <sys_created_on>2022-10-25 15:42:03</sys_created_on>
+        <sys_id>c96b7c89873e1510ab8253983cbb357a</sys_id>
+        <sys_name>getEmailAddrv2</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_c96b7c89873e1510ab8253983cbb357a</sys_update_name>
+    </sys_script_include>
+</record_update>
